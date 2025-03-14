@@ -4,6 +4,8 @@ from flask_restful import Resource, Api
 from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from models import db, User
+from flask_talisman import Talisman
+
 
 app = Flask(__name__)
 CORS(app)
@@ -15,6 +17,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 migrate = Migrate(app, db)
 api = Api(app)
+Talisman(app)
 
 
 class UserRegister(Resource):
