@@ -7,3 +7,4 @@ flask_restful
 flask_sqlalchemy
 SQLAlchemy
 sqlalchemy_serializer
+flask_talisman
