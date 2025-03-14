@@ -1,0 +1,10 @@
+alembic
+Flask
+flask_bcrypt
+flask_cors
+flask_migrate
+flask_restful
+flask_sqlalchemy
+flask_talisman
+SQLAlchemy
+sqlalchemy_serializer
