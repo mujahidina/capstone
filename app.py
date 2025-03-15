@@ -17,7 +17,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 migrate = Migrate(app, db)
 api = Api(app)
-Talisman(app)
+# Talisman(app)
+Talisman(app, force_https=False)
 
 
 class UserRegister(Resource):
