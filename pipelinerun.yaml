@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: flask-app-pipeline-run
+spec:
+  pipelineRef:
+    name: flask-app-pipeline
+  params:
+    - name: DOCKER_USERNAME
+      value: "mujahid001"  
+    - name: DOCKER_PASSWORD
+      value: "48995070"    

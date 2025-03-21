@@ -1,0 +1,24 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: build-image
+spec:
+  steps:
+    - name: build
+      image: docker
+      script: |
+        #!/usr/bin/env bash
+        docker build -t mujahid001/customers-account:latest .
+
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: push-image
+spec:
+  steps:
+    - name: push
+      image: docker
+      script: |
+        echo 48995070 | docker login -u mujahid001 --password-stdin
+        docker push mujahid001/customers-account:latest

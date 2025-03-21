@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customers-account
+  labels:
+    app: customers-account
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: customers-account
+  template:
+    metadata:
+      labels:
+        app: customers-account
+    spec:
+      containers:
+      - name: customers-account  
+        image: mujahid001/customers-account
+        ports:
+        - containerPort: 5000 
+        env:
+        - name: FLASK_ENV
+          value: "production"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: customers-account-microservice
+  labels:
+    app: customers-account
+spec:
+  selector:
+    app: customers-account
+  ports:
+  - name: http  
+    protocol: TCP
+    port: 80
+    targetPort: 5000
+  type: LoadBalancer
